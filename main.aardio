@@ -1,0 +1,64 @@
+import win.ui;
+//载入登录窗口
+loginForm=win.loadForm("\forms\login.aardio");
+if(!loginForm.doModal()) return ;
+/*DSG{{*/
+mainForm = win.form(text="文锋粮食收购系统";right=836;bottom=555;image=$"\include\images\bg.gif";bgcolor=15780518;bkBottom=2;bkLeft=83;bkRight=255;bkTop=110)
+mainForm.add(
+btnNav1={cls="plus";text="收购入库";left=141;top=9;right=217;bottom=90;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\excel.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=2};
+btnNav2={cls="plus";text="销售出库";left=234;top=9;right=310;bottom=90;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\feed.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=1};
+btnNav3={cls="plus";text="统计查询";left=327;top=9;right=403;bottom=90;color=15793151;dl=1;dt=1;foreground="\res\images\ppt.png";paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=4};
+btnNav4={cls="plus";text="数据维护";left=421;top=9;right=497;bottom=90;color=15793151;dl=1;dt=1;foreground="\res\images\ppt.png";paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=5};
+btnNav5={cls="plus";text="系统设置";left=514;top=9;right=590;bottom=90;color=15793151;dl=1;dt=1;foreground="\res\images\ppt.png";paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=6};
+custom={cls="custom";left=1;top=96;right=836;bottom=560;bgcolor=16777215;db=1;dl=1;dr=1;dt=1;z=3}
+)
+/*}}*/
+
+import db;
+db.openDb()
+//创建高级选项卡
+import win.ui.tabs;
+
+//至少要添加2个创建好的选项卡作为设计模板
+var tbs = win.ui.tabs( 
+	mainForm.btnNav1,
+	mainForm.btnNav2,
+	mainForm.btnNav3,
+	mainForm.btnNav4,
+	mainForm.btnNav5,
+	
+);
+
+//指定选项卡的外观样式
+tbs.skin( {
+	background = { 
+		hover = "/res/images/main-nav-bg-hover.png"; 
+		active = "/res/images/main-nav-bg-hover.png"; 
+		default = "/res/images/main-nav-bg.png"; 
+	}
+	checked = { //指定选中状态的样式
+		background = { 
+			hover = "/res/images/main-nav-bg-hover.png"; 
+			active = "/res/images/main-nav-bg-hover.png"; 
+			default = "/res/images/main-nav-bg-hover.png";  
+		} 
+	} 
+} )  
+
+//加载窗口,绑定第一个选项卡
+tbs.loadForm(1,"\forms\入库.aardio" );
+tbs.loadForm(2,"\forms\page2.aardio" )
+tbs.loadForm(3,"\forms\page2.aardio" )
+
+//动态添加更多选项卡，可以直接用第2个参数同时加载并绑定一个窗体
+tbs.add({
+	text="关于软件";
+	foreground="\res\images\rss.png";
+	//hasCloseButton = true;//允许关闭
+},"\forms\page3.aardio" )
+
+//必须指定默认选中项
+tbs.selIndex = 1;
+
+mainForm.show() 
+win.loopMessage(); 

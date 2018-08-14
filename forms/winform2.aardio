@@ -1,0 +1,40 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="字符格子例子";right=579;bottom=233)
+winform.add(
+lbText={cls="static";left=464;top=28;right=544;bottom=108;border=1;color=14012107;font=LOGFONT(h=-67);nWrap=1;transparent=1;z=2};
+myedit={cls="edit";text="edit";left=17;top=145;right=226;bottom=175;align="center";edge=1;name="myedit";z=3};
+static={cls="static";left=4;top=4;right=345;bottom=214;align="center";bgcolor=13356757;center=1;font=LOGFONT(name='宋体';h=-15);nWrap=1;notify=1;z=1}
+)
+/*}}*/
+
+var text = /*＋－×÷﹢﹣±／＝≈≡≠∧∨∑∏∪∩∈⊙⌒⊥∥∠∽≌＜＞≦≧≮≯∧∨√　﹙﹚［］ab'﹛﹜∫∮∝∞⊙∏*/
+
+var aTxt = string.split(text)
+
+import console
+
+winform.static.command=function(id,event){
+    console.log(id)
+	var ctrl=winform.getCtrlById(id)
+	winform.lbText.text=ctrl.text	
+}
+for(i=1;#aTxt;1){
+
+    var staticLeft = 10+ 25 * (i - (math.floor((i - 1) / 12) * 12 + 1));
+    var staticTop =  13 + 22 * math.floor((i - 1) / 12)
+    
+    winform.add({ 
+        [  "kb" + i ] = {cls="static"; align="center";notify=1;center=1;bgcolor=16777215;font=LOGFONT( h=-15;name='宋体' );bottom=staticTop+20;right=staticLeft+23;left=staticLeft;top=staticTop;z=1;text=aTxt[ i ];
+            oncommand =winform.static.command }},winform.static
+    )
+}
+winform.static.group()
+for(name,ctrl in winform.eachControl() ){
+	//if(ctrl.getParent()===winform.static)
+	console.log(name)
+}
+winform.myedit.setParent(winform.static)
+
+winform.show() 
+win.loopMessage();

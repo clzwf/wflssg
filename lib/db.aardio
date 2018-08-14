@@ -1,0 +1,37 @@
+﻿import sqlite;
+
+import console;
+namespace db{
+	var conn=null;
+	openDb = function(){
+		if(conn!=null) return;
+		conn = ..sqlite("\ls.db");
+		var row = conn.stepQuery("SELECT COUNT(*) FROM sqlite_master WHERE type='table'")
+		if(tonumber(row["COUNT(*)"])==0)
+			createDb()
+		 
+	}
+	
+	createDb = function(){
+		//创建用户表(user:姓名,密码,权限)
+		conn.exec("create table 用户(编号 TEXT,姓名 TEXT,密码 TEXT,权限 INTEGER)")
+		conn.exec("INSERT INTO 用户 VALUES('001','admin','admin1234',1099511627775)")
+		
+	}
+	
+	query =function(sql,param){
+		return conn.getTable(sql,param)
+	}
+	
+	queryOne=function(sql,param){
+		return conn.stepQuery(sql,param)
+	}
+	
+}
+/**intellisense()
+openDb=打开数据库ls.db
+query=查询数据库，返回k=v表的数组
+queryOne=查询数据库，返回k=v形式的首行记录
+end intellisense**/
+
+
