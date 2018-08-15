@@ -1,0 +1,30 @@
+import win.ui;
+import db;
+/*DSG{{*/
+var winform = win.form(text="文锋粮食收购系统--登录";right=470;bottom=373;bgcolor=12632256;max=false;min=false;parent=...)
+winform.add(
+button={cls="button";text="登录";left=145;top=334;right=219;bottom=361;z=1};
+button2={cls="button";text="退出";left=264;top=334;right=338;bottom=361;z=2};
+edit={cls="edit";left=97;top=297;right=217;bottom=320;edge=1;font=LOGFONT(h=-14);multiline=1;z=4};
+edit2={cls="edit";left=318;top=297;right=436;bottom=320;edge=1;font=LOGFONT(h=-14);password=1;z=6};
+plus={cls="plus";left=0;top=0;right=472;bottom=284;foreground="\res\images\login.jpg";z=7};
+static={cls="static";text="用户名：";left=16;top=297;right=104;bottom=320;font=LOGFONT(h=-19);transparent=1;z=3};
+static2={cls="static";text="密码：";left=261;top=296;right=328;bottom=319;font=LOGFONT(h=-19);transparent=1;z=5}
+)
+/*}}*/
+
+winform.button.oncommand = function(id,event){
+	db.openDb()
+	
+	winform.endModal(true)
+}
+
+winform.button2.oncommand = function(id,event){
+	winform.close()
+}
+
+winform.enableDpiScaling();
+winform.show();
+
+win.loopMessage();
+return winform;

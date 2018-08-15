@@ -1,0 +1,76 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="aardio form";right=577;bottom=379)
+winform.add(
+button={cls="button";text="button";left=44;top=300;right=146;bottom=323;z=3};
+button2={cls="button";text="button2";left=40;top=331;right=147;bottom=355;z=4};
+static={cls="static";left=6;top=1;right=570;bottom=271;bgcolor=0;cp=1;db=1;dl=1;dr=1;dt=1;notify=1;z=1};
+static2={cls="static";text="static2";left=356;top=312;right=494;bottom=342;bgcolor=16777215;transparent=1;z=2}
+)
+/*}}*/
+
+import console
+class gridLayout{
+	ctor(ctrl, colNum=4,rowHeight=24,padding=5,space=1){
+		var tw=ctrl.width
+		var th=ctrl.height
+		this.w=(tw-padding*2-space*(colNum-1))/colNum //没单元宽度
+		this.sw=this.w*0.3 //static 宽度占单元格30%
+		this.ew=this.w-this.sw //输入控件占70%
+		this.row=0 //当前行
+		this.col=0 //当前列
+	};
+	type=gridLayout;
+	/*对象的所有成员必须用分号分隔*/
+	addCtrl=function(param){
+		for(i=1;#param;1){
+			var top=padding+this.row*rowHeight+this.row * space
+			var left=padding+this.col*this.w+this.col*space
+			ctrl.addCtrl(
+				["lb"+i]={cls="static";text=param[i].name+":";left=left;top=top;right=left+this.sw;bottom=top+rowHeight;cp=1;notify=1;align="right";center=1;aw=1}
+				)
+			ctrl.addCtrl([param[i].name]={cls="edit";text=param[i].v;left=left+this.sw;top=top;right=left+this.sw+this.ew;bottom=top+rowHeight;aw=1})
+			this.col+=1
+			if(this.col=colNum){
+				this.row +=1
+				this.col =0
+				}
+			}
+		
+		ctrl.translateCommand()
+		};
+	
+	delCtrl =function(){
+		for(k,v in ctrl){
+			var c=v[['cls']]
+			if(c){
+				v.close()
+				}
+			}
+		this.col=0
+		this.row=0
+		};
+		
+	
+}
+listCtrl={{name="等级";type="edit";value="2";width=1}
+		{name="水分";type="edit";value="2";width=1}
+		{name="杂质";type="edit";value="2";width=1}
+		{name="不完善粒";type="edit";value="2";width=1}
+		{name="容重";type="edit";value="2";width=1}
+		}
+
+var gl =gridLayout(winform.static)
+
+
+
+winform.button.oncommand = function(id,event){
+	
+		gl.addCtrl(listCtrl)
+	
+}
+//console.varDump(winform.static)
+
+
+winform.show() 
+win.loopMessage();
