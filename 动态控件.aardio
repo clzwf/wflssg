@@ -10,15 +10,28 @@ static2={cls="static";text="static2";left=356;top=312;right=494;bottom=342;bgcol
 /*}}*/
 
 import console
+<<<<<<< HEAD
+=======
+//import math
+>>>>>>> 5cb577eca08c2f4382c56a5d3e13c70cee7bf8f8
 class gridLayout{
 	ctor(ctrl, colNum=4,rowHeight=24,padding=5,space=1){
 		var tw=ctrl.width
 		var th=ctrl.height
+<<<<<<< HEAD
 		this.w=(tw-padding*2-space*(colNum-1))/colNum //没单元宽度
 		this.sw=this.w*0.3 //static 宽度占单元格30%
 		this.ew=this.w-this.sw //输入控件占70%
 		this.row=0 //当前行
 		this.col=0 //当前列
+=======
+		this.w=..math.floor((tw-padding*2-space*(colNum-1))/colNum) //每个单元宽度
+		this.sw=..math.floor(this.w*0.3) //static 宽度占单元格30%
+		this.ew=this.w-this.sw //输入控件占70%
+		this.row=0 //当前行
+		this.col=0 //当前列
+		padding=..math.floor((tw-this.w *colNum-space*(colNum*space))/2)
+>>>>>>> 5cb577eca08c2f4382c56a5d3e13c70cee7bf8f8
 	};
 	type=gridLayout;
 	/*对象的所有成员必须用分号分隔*/
@@ -40,6 +53,14 @@ class gridLayout{
 		ctrl.translateCommand()
 		};
 	
+<<<<<<< HEAD
+=======
+	adjust = function(cx,cy.wparam){
+		
+	}
+	
+		
+>>>>>>> 5cb577eca08c2f4382c56a5d3e13c70cee7bf8f8
 	delCtrl =function(){
 		for(k,v in ctrl){
 			var c=v[['cls']]
