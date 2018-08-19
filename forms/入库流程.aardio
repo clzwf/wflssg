@@ -1,0 +1,26 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="aardio form";right=759;bottom=510)
+winform.add(
+edit={cls="edit";text="0457890";left=559;top=3;right=758;bottom=43;align="center";bgcolor=12632256;color=65280;edge=1;font=LOGFONT(name='黑体';h=-29);multiline=1;z=3};
+edit2={cls="edit";text="edit2";left=128;top=70;right=262;bottom=93;edge=1;group=1;multiline=1;z=8};
+edit3={cls="edit";text="edit3";left=331;top=53;right=411;bottom=74;edge=1;group=1;z=6};
+groupbox={cls="groupbox";left=5;top=14;right=539;bottom=104;cp=1;dr=1;group=1;z=4};
+groupbox2={cls="groupbox";left=5;top=112;right=539;bottom=202;cp=1;dr=1;group=1;z=9};
+groupbox3={cls="groupbox";left=5;top=210;right=539;bottom=300;cp=1;dr=1;group=1;z=11};
+groupbox4={cls="groupbox";left=5;top=308;right=539;bottom=398;cp=1;dr=1;group=1;z=13};
+groupbox5={cls="groupbox";left=5;top=406;right=539;bottom=496;cp=1;dr=1;group=1;z=15};
+listbox={cls="listbox";left=559;top=76;right=757;bottom=467;db=1;dr=1;dt=1;edge=1;items={};z=1};
+static={cls="static";text="在库售粮车：";left=560;top=51;right=679;bottom=69;color=32768;dr=1;dt=1;font=LOGFONT(h=-14;weight=700);transparent=1;z=2};
+static2={cls="static";text=" 售粮人：";left=5;top=4;right=539;bottom=21;bgcolor=10789024;center=1;color=32768;dr=1;z=5};
+static3={cls="static";text="static3";left=72;top=73;right=119;bottom=94;group=1;transparent=1;z=7};
+static4={cls="static";text="检验";left=5;top=102;right=539;bottom=119;bgcolor=10789024;center=1;color=32768;dr=1;z=10};
+static5={cls="static";text="毛重检斤";left=5;top=200;right=539;bottom=217;bgcolor=10789024;center=1;color=32768;dr=1;z=12};
+static6={cls="static";text="卸车入库";left=5;top=298;right=539;bottom=315;bgcolor=10789024;center=1;color=32768;dr=1;notify=1;z=14};
+static7={cls="static";text="皮重检斤";left=5;top=396;right=539;bottom=413;bgcolor=10789024;center=1;color=32768;dr=1;z=16}
+)
+/*}}*/
+
+winform.show();
+win.loopMessage();
+return winform;

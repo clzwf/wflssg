@@ -5,14 +5,20 @@ var winform = win.form(text="文锋粮食收购系统--登录";right=470;bottom=
 winform.add(
 button={cls="button";text="登录";left=145;top=334;right=219;bottom=361;z=1};
 button2={cls="button";text="退出";left=264;top=334;right=338;bottom=361;z=2};
+<<<<<<< HEAD
 edit={cls="edit";left=97;top=297;right=217;bottom=320;edge=1;font=LOGFONT(h=-14);multiline=1;z=4};
 edit2={cls="edit";left=318;top=297;right=436;bottom=320;edge=1;font=LOGFONT(h=-14);password=1;z=6};
+=======
+edit={cls="edit";left=97;top=297;right=217;bottom=320;edge=1;font=LOGFONT(h=-14);tabstop=1;z=4};
+edit2={cls="edit";left=318;top=297;right=436;bottom=320;edge=1;font=LOGFONT(h=-14);password=1;tabstop=1;z=6};
+>>>>>>> 5abc37d2094fa987749f6cea45ba322fd9059cd8
 plus={cls="plus";left=0;top=0;right=472;bottom=284;foreground="\res\images\login.jpg";z=7};
 static={cls="static";text="用户名：";left=16;top=297;right=104;bottom=320;font=LOGFONT(h=-19);transparent=1;z=3};
 static2={cls="static";text="密码：";left=261;top=296;right=328;bottom=319;font=LOGFONT(h=-19);transparent=1;z=5}
 )
 /*}}*/
 
+<<<<<<< HEAD
 winform.button.oncommand = function(id,event){
 	db.openDb()
 	
@@ -20,11 +26,48 @@ winform.button.oncommand = function(id,event){
 }
 
 winform.button2.oncommand = function(id,event){
+=======
+import console
+winform.button.oncommand = function(id,event){
+    //登录按钮
+	var name = string.trim(winform.edit.text)
+	var pass = winform.edit2.text
+	if(name ='' or pass=''){
+		winform.msgbox("请输入用户名或密码!")
+		return ;
+		}
+	db.openDb()
+	var rs=db.queryOne("select 密码 from [用户] where 姓名='"+name+"'")
+	if(rs and rs.密码==pass)
+		winform.endModal(true)
+	else {
+		winform.msgbox("用户名或密码错误！")
+		winform.edit.setFocus(0,-1)
+		}
+		
+}
+winform.edit2.translateAccelerator = function(msg){ 
+    //密码输入框回车调用登录按钮事件
+    var vk = msg.wParam;
+ 	if( vk = 0xD/*_VK_RETURN*/ ){
+		if( msg.message == 0x100/*_WM_KEYDOWN*/) {
+			winform.button.oncommand() 
+			return true;
+		}
+	}	
+}
+winform.button2.oncommand = function(id,event){
+    //退出按钮
+>>>>>>> 5abc37d2094fa987749f6cea45ba322fd9059cd8
 	winform.close()
 }
 
 winform.enableDpiScaling();
 winform.show();
+<<<<<<< HEAD
 
+=======
+winform.edit.setFocus(0)//用户输入框获取焦点
+>>>>>>> 5abc37d2094fa987749f6cea45ba322fd9059cd8
 win.loopMessage();
 return winform;

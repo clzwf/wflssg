@@ -14,9 +14,17 @@
 		</folder>
 	</folder>
 	<folder name="窗体" path="forms" comment="" embed="true">
+<<<<<<< HEAD
 		<file name="page1.aardio" path="forms\page1.aardio" comment="forms\page1.aardio"/>
 		<file name="page2.aardio" path="forms\page2.aardio" comment="forms\page2.aardio"/>
 		<file name="page3.aardio" path="forms\page3.aardio" comment="forms\page3.aardio"/>
 		<file name="login.aardio" path="forms\login.aardio" comment="forms\login.aardio"/>
+=======
+		<file name="入库" path="forms\入库.aardio" comment="forms\page1.aardio"/>
+		<file name="page2.aardio" path="forms\page2.aardio" comment="forms\page2.aardio"/>
+		<file name="page3.aardio" path="forms\page3.aardio" comment="forms\page3.aardio"/>
+		<file name="login.aardio" path="forms\login.aardio" comment="forms\login.aardio"/>
+		<file name="入库流程.aardio" path="forms\入库流程.aardio" comment="forms\入库流程.aardio"/>
+>>>>>>> 5abc37d2094fa987749f6cea45ba322fd9059cd8
 	</folder>
 </project>

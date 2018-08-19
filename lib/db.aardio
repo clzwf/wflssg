@@ -20,12 +20,25 @@ namespace db{
 	}
 	
 	query =function(sql,param){
+<<<<<<< HEAD
 		
+=======
+		return conn.getTable(sql,param)
+	}
+	
+	queryOne=function(sql,param){
+		return conn.stepQuery(sql,param)
+>>>>>>> 5abc37d2094fa987749f6cea45ba322fd9059cd8
 	}
 	
 }
 /**intellisense()
 openDb=打开数据库ls.db
+<<<<<<< HEAD
+=======
+query=查询数据库，返回k=v表的数组
+queryOne=查询数据库，返回k=v形式的首行记录
+>>>>>>> 5abc37d2094fa987749f6cea45ba322fd9059cd8
 end intellisense**/
 
 

@@ -1,0 +1,9 @@
+﻿//gridCCtrl:网格布局动态创建控件（标签+文本框）
+class gridCCtrl{
+	ctor( parent,cloumn=3,padding=5,rowHeight=24,spance=1 ){
+		this.itemW=(parent.width-2*padding-(cloumn-1)*spance)/cloumn
+		this.staticW=this.itemW*0.3
+		this.editw=itemW-this.staticW
+	};
+	
+}

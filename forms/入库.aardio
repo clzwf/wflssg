@@ -1,0 +1,35 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="收购入库";right=939;bottom=578)
+winform.add(
+edit={cls="edit";text="edit";left=209;top=73;right=355;bottom=96;edge=1;z=9};
+static={cls="static";left=117;top=7;right=118;bottom=570;bgcolor=16752414;clip=1;db=1;dl=1;dt=1;z=4};
+static2={cls="static";text="粮食收购入库";left=8;top=2;right=934;bottom=48;align="center";bgcolor=430829;center=1;font=LOGFONT(h=-29);z=8};
+static3={cls="static";left=130;top=56;right=599;bottom=568;bgcolor=12632256;border=1;color=-1;transparent=1;z=1};
+static4={cls="static";text="收购单号：";left=145;top=78;right=208;bottom=95;transparent=1;z=10};
+strip1={cls="plus";text="入库查询";left=10;top=87;right=118;bottom=127;bgcolor=16752414;clip=1;dl=1;dt=1;z=2};
+strip2={cls="plus";text="票据修改";left=10;top=133;right=118;bottom=173;bgcolor=16752414;clip=1;dl=1;dt=1;z=3};
+strip3={cls="plus";text="票据修改";left=10;top=179;right=118;bottom=219;bgcolor=16752414;clip=1;dl=1;dt=1;notify=1;z=5};
+strip4={cls="plus";text="售粮人信息";left=10;top=224;right=118;bottom=264;bgcolor=16752414;clip=1;dl=1;dt=1;notify=1;z=6};
+strip5={cls="plus";text="入库报表";left=10;top=270;right=118;bottom=310;bgcolor=16752414;clip=1;dl=1;dt=1;z=7}
+)
+/*}}*/
+
+var buttonskin={background={
+					hover=0xFFB4A5CC;
+					active=0xFFB4A5CC;
+					};
+				border={
+					active={width=3;color=0xFFFC9A08} 
+					}
+				}
+
+winform.strip1.skin(buttonskin)
+winform.strip2.skin(buttonskin)
+winform.strip3.skin(buttonskin)
+winform.strip4.skin(buttonskin)
+winform.strip5.skin(buttonskin)
+
+winform.show();
+win.loopMessage();
+return winform;

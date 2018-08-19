@@ -3,7 +3,11 @@ import win.ui;
 loginForm=win.loadForm("\forms\login.aardio");
 if(!loginForm.doModal()) return ;
 /*DSG{{*/
+<<<<<<< HEAD
 mainForm = win.form(text="plus框架";right=836;bottom=555;image=$"\include\images\bg.gif";bgcolor=15780518;bkBottom=2;bkLeft=83;bkRight=255;bkTop=110)
+=======
+mainForm = win.form(text="文锋粮食收购系统";right=836;bottom=555;image=$"\include\images\bg.gif";bgcolor=15780518;bkBottom=2;bkLeft=83;bkRight=255;bkTop=110)
+>>>>>>> 5abc37d2094fa987749f6cea45ba322fd9059cd8
 mainForm.add(
 btnNav1={cls="plus";text="收购入库";left=141;top=9;right=217;bottom=90;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\excel.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=2};
 btnNav2={cls="plus";text="销售出库";left=234;top=9;right=310;bottom=90;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\feed.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=1};
@@ -15,7 +19,11 @@ custom={cls="custom";left=1;top=96;right=836;bottom=560;bgcolor=16777215;db=1;dl
 /*}}*/
 
 import db;
+<<<<<<< HEAD
 db.getDb()
+=======
+db.openDb()
+>>>>>>> 5abc37d2094fa987749f6cea45ba322fd9059cd8
 //创建高级选项卡
 import win.ui.tabs;
 
@@ -46,7 +54,11 @@ tbs.skin( {
 } )  
 
 //加载窗口,绑定第一个选项卡
+<<<<<<< HEAD
 tbs.loadForm(1,"\forms\page1.aardio" );
+=======
+tbs.loadForm(1,"\forms\入库.aardio" );
+>>>>>>> 5abc37d2094fa987749f6cea45ba322fd9059cd8
 tbs.loadForm(2,"\forms\page2.aardio" )
 tbs.loadForm(3,"\forms\page2.aardio" )
 
